@@ -37,6 +37,8 @@ class Settings(BaseModel):
     model: ModelSettings
     sandbox: SandboxSettings
     policies: PoliciesSettings
+    # Real runs leave this off. Tests turn it on so a local file:// fixture is allowed.
+    allow_file_urls: bool = False
 
 
 def _config_dir() -> Path:
