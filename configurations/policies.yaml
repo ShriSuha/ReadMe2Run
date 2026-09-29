@@ -1,0 +1,21 @@
+# How many times the tool may try to fix a failed run before it gives up.
+max_repairs: 5
+
+# Refuse a repository larger than this many megabytes.
+repo_size_cap_mb: 200
+
+# When listing the repo, keep at most this many file paths.
+tree_cap_paths: 200
+
+# Use only the first this many characters of the README.
+readme_cap_characters: 40000
+
+# System packages a repair is allowed to install with apt-get.
+apt_allowlist:
+  - build-essential
+  - git
+  - curl
+  - ca-certificates
+  - pkg-config
+  - libssl-dev
+  - libffi-dev

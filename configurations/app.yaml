@@ -1,0 +1,5 @@
+# How much detail the tool prints. INFO is the usual amount.
+log_level: INFO
+
+# Folder where each run is saved.
+runs_dir: ~/.local/share/readme2run/runs

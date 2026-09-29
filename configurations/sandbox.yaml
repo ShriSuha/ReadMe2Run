@@ -1,0 +1,18 @@
+# Seconds a normal command may run before it is stopped.
+command_timeout: 300
+
+# Seconds allowed for installing dependencies and building.
+build_install_timeout: 900
+
+# Memory cap for the container.
+memory: 2g
+
+# CPU cap for the container. 2000000000 is about 2 CPUs.
+nano_cpus: 2000000000
+
+# Base image used for each language when the repo has no Dockerfile.
+images:
+  python: python:3.11-slim
+  node: node:20-bookworm-slim
+  go: golang:1.22
+  rust: rust:1-slim

@@ -1,0 +1,11 @@
+# Local model the agents ask for answers.
+model: qwen2.5:14b
+
+# Address of the Ollama server on this machine.
+base_url: http://127.0.0.1:11434
+
+# How much text the model can hold in one request.
+num_ctx: 16384
+
+# How freely the model varies its wording. Lower is more predictable.
+temperature: 0.1
