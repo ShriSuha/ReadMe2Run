@@ -99,7 +99,7 @@ def run_flow(
 
         # Prefer Driver agent when enabled; otherwise deterministic run + repair.
         if use_agents:
-            from readme2run.agents.driver import run_driver_crew
+            from readme2run.agents.crew import run_driver_crew
 
             attempts = run_driver_crew(
                 plan=plan,
@@ -129,7 +129,7 @@ def run_flow(
 
         state.verdict = decide_verdict(facts, plan, state.attempts, state.repair_count)
         if use_agents:
-            from readme2run.agents.analyst import write_evidence
+            from readme2run.agents.crew import write_evidence
 
             try:
                 state.verdict.evidence = write_evidence(state)
@@ -146,7 +146,7 @@ def run_flow(
 def _inspect(run_dir: RunDir, cfg: Settings, *, use_agents: bool, emit) -> object:
     if use_agents:
         try:
-            from readme2run.agents.inspector import run_inspector
+            from readme2run.agents.crew import run_inspector
 
             facts = run_inspector(run_dir.repo, cfg)
             if facts.tree or facts.readme.commands:
@@ -160,7 +160,7 @@ def _plan(facts, cfg: Settings, *, use_agents: bool, emit):
     fallback = select_plan(facts, cfg)
     if use_agents:
         try:
-            from readme2run.agents.architect import run_architect
+            from readme2run.agents.crew import run_architect
 
             plan = run_architect(facts, cfg)
             if plan is not None and plan.run_commands:

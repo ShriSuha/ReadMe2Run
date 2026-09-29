@@ -111,10 +111,10 @@ def test_stub_driver_stops_at_max_repairs(tmp_path: Path) -> None:
 def test_architect_fallback_keeps_planner_plan() -> None:
     from unittest.mock import patch
 
-    from readme2run.agents.architect import architect_or_fallback
+    from readme2run.agents.crew import architect_or_fallback
 
     facts = inspect_repo(Path("tests/fixtures/hello"))
     settings = load_settings()
-    with patch("readme2run.agents.architect.run_architect", return_value=None):
+    with patch("readme2run.agents.crew.run_architect", return_value=None):
         plan = architect_or_fallback(facts, settings)
     assert plan.run_commands[0].script == "python main.py"
